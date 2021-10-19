@@ -1,6 +1,7 @@
 import { createStyles,makeStyles } from "@material-ui/styles";
 import { Theme } from "@material-ui/core";
 import pokeball from "../images/pokeball.png";
+import pokeballopen from "../images/pokeballopen.png";
 
 export const useStyle = makeStyles((theme: Theme) => 
     createStyles({
@@ -72,11 +73,13 @@ export const useStyle = makeStyles((theme: Theme) =>
             backgroundImage: `url(${pokeball})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: '65px, 65px',
-            transitionDuration: '500ms',
+            transitionDuration: '250ms',
             '&:hover':{
-                transform: 'scale(1.2)',
+                backgroundImage: `url(${pokeballopen})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: '50px, 50px',
+                transform: 'scale(1.1)',
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
-                backgroundSize: '80px',
                 color: '#26A69A',
                 backgroundColor: '#FFF9C4',
             }
@@ -98,7 +101,7 @@ export const useStyle = makeStyles((theme: Theme) =>
             right: '0',
             '&:hover':{
                 backgroundColor: 'green'
-            }
+            },
         },
         searchInput: {
             width: '100%',
