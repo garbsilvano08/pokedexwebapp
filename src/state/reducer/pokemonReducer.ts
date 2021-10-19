@@ -86,12 +86,38 @@ export interface pokemonsList{
     }] | undefined
 }
 
-export interface pokemonDetail{
-    pokemon : 
-        {
+export interface PokemonAbilitiesProps{
+    data:{
+        effect_changes: string[];
+        effect_entries: Array<{
+            effect: string;
+            language:{
+                name: string;
+                url: string;
+            },
+            short_effect: string;
+        }>;
+        flavor_text_entries: Array<{
+            flavor_text: string;
+            language: {
+                name: string;
+                url: string
+            }
+            verstion_group: {
+                name: string;
+                url: string;
+            }
+        }>;
+        generation: Array<{
             name: string;
-            url: string;
-        }
+            url: string
+        }>;
+        id: number;
+        is_main_series: boolean;
+        name: string;
+        names: Array<{}>
+        pokemon: Array<{}>
+    }
 }
 
 const initialState = {

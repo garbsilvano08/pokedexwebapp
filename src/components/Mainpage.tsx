@@ -9,7 +9,7 @@ import { pokemons, PokemonState } from '../state/reducer/pokemonReducer';
 import Buttons from './Buttons';
 import Searchbar from './Searchbar';
 import axios from 'axios';
-import ModalPage from './ModalPage';
+import LoadingPage from './LoadingPage';
 
 const Mainpage : React.FC = () => {
     const classes = useStyle();
@@ -18,9 +18,9 @@ const Mainpage : React.FC = () => {
     const [isPrev, setIsPrev] = useState<boolean>(false);
     const [nextPage, setNextPage] = useState<string>('');
     const [prevPage, setPrevPage] = useState<string>('');
-    const [currentPage, setCurrentPage] = useState<string>('https://pokeapi.co/api/v2/pokemon/');
+    const [currentPage, setCurrentPage] = useState<string | null>('https://pokeapi.co/api/v2/pokemon/');
     const [results, setResults] = useState<[{ name: string, url: string}]>();
-    const [openPokemon, setOpenPokemon] = useState<boolean>(false);
+    const [openLoading, setOpenLoading] = useState<boolean>(false);
     const { searchPokemon }  = useActions();
     const state : PokemonState = useTypedSelector((state)=> state.pokemon);
 
@@ -48,27 +48,35 @@ const Mainpage : React.FC = () => {
     
     const handleSearch = (e: React.MouseEvent<HTMLButtonElement>) =>{
         searchPokemon(name);
-        setOpenPokemon(true);
+        if(state.loading === true || state.loading === false){
+            setOpenLoading(true);
+        }
     }
 
-    const handleCloseModal = () => {
-        setOpenPokemon(false);
+    const handleCloseLoading = () => {
+        setOpenLoading(false);
+        setName('');
     };
-
-    console.log(state.data, 'Search');
 
     const handlePages = (e: React.MouseEvent<HTMLButtonElement>) => {
         const element = e.currentTarget as HTMLButtonElement
         const id = element.id
         if(id === 'next'){
             setCurrentPage(`${nextPage}`);
-            getPokemonsData();
+            localStorage.setItem('currentPage', nextPage);
         }else{
             setCurrentPage(`${prevPage}`);
+            localStorage.setItem('currentPage', prevPage);
         }
     }
 
+
     useEffect(()=>{
+        if(localStorage.getItem('currentPage')){
+            const locationPage = localStorage.getItem('currentPage')
+            setCurrentPage(locationPage);
+        }
+
         getPokemonsData();
     },[currentPage])
     return (
@@ -86,7 +94,7 @@ const Mainpage : React.FC = () => {
                 </div>
                 <Buttons isNext={isNext} isPrev={isPrev} handlePages={handlePages} />
             </Container>
-            <ModalPage openPokemon={openPokemon} handleCloseModal={handleCloseModal}/>
+            <LoadingPage openLoading={openLoading} handleCloseLoading={handleCloseLoading}/>
         </>
     )
 }

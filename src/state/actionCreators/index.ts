@@ -5,7 +5,7 @@ import { ActionTypes } from '../actionTypes';
 import { pokemons, PokemonState } from '../reducer/pokemonReducer';
 
 
-export const searchPokemon = ( name: string) => {
+export const searchPokemon = ( name: string | null) => {
     return async(dispatch : Dispatch<Action>) =>{
         dispatch({
             type: ActionTypes.SEARCH_POKEMON

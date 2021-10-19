@@ -44,6 +44,39 @@ export const useStyle = makeStyles((theme: Theme) =>
             margin: '20px',
             
         },
+        errContainer:{
+            marginTop: '14%',
+            padding: '20px',
+            textAlign: 'center',
+            margin: 'auto',
+            width: '400px',
+            backgroundColor: 'white',
+            borderRadius: '0.5em',
+            boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px',
+        },
+        errHeader:{
+            padding: '50px',
+            margin: 'auto',
+            boxShadow: 'rgba(50, 50, 93, 0.25)',
+            backgroundColor: '#EFEBE9',
+            borderRadius: '0.5em',
+            fontFamily: [
+                'Poppins',
+                'sans-serif',
+              ].join(','),
+        },
+        errBody:{
+            padding: '50px',
+            margin: 'auto',
+            marginTop: '10px',
+            boxShadow: 'rgba(50, 50, 93, 0.25)',
+            backgroundColor: 'yellow',
+            borderRadius: '0.5em',
+            fontFamily: [
+                'Poppins',
+                'sans-serif',
+              ].join(','),
+        },
         cardsContainer:{
             marginTop: '20px',
             boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px',
@@ -68,11 +101,6 @@ export const useStyle = makeStyles((theme: Theme) =>
             marginBottom: '10px',
             borderRadius: '0.5em',
             boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-            cursor: 'pointer',
-            fontFamily: [
-                'Poppins',
-                'sans-serif',
-              ].join(','),
             backgroundImage: `url(${pokeball})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: '65px, 65px',
@@ -83,14 +111,31 @@ export const useStyle = makeStyles((theme: Theme) =>
                 backgroundSize: '50px, 50px',
                 transform: 'scale(1.1)',
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
-                color: '#26A69A',
                 backgroundColor: '#FFF9C4',
+            }
+        },
+        cardLink:{
+            textDecoration: 'none',
+            cursor: 'pointer',
+            fontFamily: [
+                'Poppins',
+                'sans-serif',
+              ].join(','),
+            '&:visited':{
+                color: '#26A69A',
+            },
+            '&:link':{
+                color: 'black',
+            },
+            '&:hover':{
+                color: 'red',
             }
         },
         cardTitle:{
             textAlign: 'center',
             margin: 'auto',
             paddingTop: '10px',
+            textDecoration: 'none',
         },
         inputDiv:{
             display: 'flex',
@@ -130,13 +175,13 @@ export const useStyle = makeStyles((theme: Theme) =>
         modalContainer:{
             backgroundColor: 'rgba(0,0,0,0.2)',
         },
-        modalHeader:{
+        pokemonHeader:{
             backgroundImage: `url(${pokeball})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: '500px, 500px',
             backgroundPosition: 'right',
             boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
-            marginTop: '10px',
+            marginTop: '25px',
             marginBottom: '10px',
             backgroundColor: '#F5F5F5',
             margin: 'auto',
@@ -149,7 +194,19 @@ export const useStyle = makeStyles((theme: Theme) =>
                 'sans-serif',
               ].join(','),
         },
-        modalPokemon:{
+        pokemonBackBtn:{
+            fontSize: '30px',
+            backgroundColor: '#E57373',
+            float: 'right',
+            fontFamily: [
+                'Poppins',
+                'sans-serif',
+              ].join(','),
+            '&:hover':{
+                backgroundColor: 'red',
+            }
+        },
+        pokemonPokemon:{
             float: 'right',
             padding: '20px',
             borderRadius: '0.5em',
@@ -159,11 +216,11 @@ export const useStyle = makeStyles((theme: Theme) =>
             '-webkit-text-stroke-width': '1px',
             '-webkit-text-stroke-color': 'yellow',
         },
-        modalTypeCards:{
+        pokemonTypeCards:{
             display: 'flex',
             flexWrap: 'wrap',
         },
-        modalTypeCardNormal:{
+        pokemonTypeCardNormal:{
             backgroundColor: '#EEEEEE',
             margin: '10px',
             padding: '20px',
@@ -177,7 +234,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardGrass:{
+        pokemonTypeCardGrass:{
             backgroundColor: 'green',
             margin: '10px',
             padding: '20px',
@@ -191,7 +248,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardPoison:{
+        pokemonTypeCardPoison:{
             backgroundColor: 'violet',
             margin: '10px',
             padding: '20px',
@@ -205,7 +262,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardWater:{
+        pokemonTypeCardWater:{
             backgroundColor: 'blue',
             margin: '10px',
             padding: '20px',
@@ -219,7 +276,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardFire:{
+        pokemonTypeCardFire:{
             backgroundColor: 'red',
             margin: '10px',
             padding: '20px',
@@ -233,7 +290,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardGround:{
+        pokemonTypeCardGround:{
             backgroundColor: 'brown',
             margin: '10px',
             padding: '20px',
@@ -247,7 +304,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardRock:{
+        pokemonTypeCardRock:{
             backgroundColor: 'grey',
             margin: '10px',
             padding: '20px',
@@ -261,7 +318,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardSteel:{
+        pokemonTypeCardSteel:{
             backgroundColor: '#CFD8DC',
             margin: '10px',
             padding: '20px',
@@ -275,7 +332,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardIce:{
+        pokemonTypeCardIce:{
             backgroundColor: '#BBDEFB',
             margin: '10px',
             padding: '20px',
@@ -289,7 +346,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardElectric:{
+        pokemonTypeCardElectric:{
             backgroundColor: '#F9A825',
             margin: '10px',
             padding: '20px',
@@ -303,7 +360,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardDragon:{
+        pokemonTypeCardDragon:{
             backgroundColor: '#0D47A1',
             margin: '10px',
             padding: '20px',
@@ -317,7 +374,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardGhost:{
+        pokemonTypeCardGhost:{
             backgroundColor: '#D7CCC8',
             margin: '10px',
             padding: '20px',
@@ -331,7 +388,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardPsychic:{
+        pokemonTypeCardPsychic:{
             backgroundColor: '#D7CCC8',
             margin: '10px',
             padding: '20px',
@@ -345,7 +402,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardFighting:{
+        pokemonTypeCardFighting:{
             backgroundColor: '#757575',
             margin: '10px',
             padding: '20px',
@@ -359,7 +416,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardBug:{
+        pokemonTypeCardBug:{
             backgroundColor: '#DCE775',
             margin: '10px',
             padding: '20px',
@@ -373,7 +430,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardFlying:{
+        pokemonTypeCardFlying:{
             backgroundColor: '#00E5FF',
             margin: '10px',
             padding: '20px',
@@ -387,7 +444,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardDark:{
+        pokemonTypeCardDark:{
             backgroundColor: '#6A1B9A',
             margin: '10px',
             padding: '20px',
@@ -401,7 +458,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalTypeCardFairy:{
+        pokemonTypeCardFairy:{
             backgroundColor: '#18FFFF',
             margin: '10px',
             padding: '20px',
@@ -415,7 +472,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalFooterTitle:{
+        pokemonFooterTitle:{
             marginTop: '20px',
             color: 'black',
             padding: '10px',
@@ -429,7 +486,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 'sans-serif',
               ].join(','),
         },
-        modalFooter:{
+        pokemonFooter:{
             display: 'flex',
             flexWrap: 'wrap',
             borderRadius: '0.5em',
@@ -438,14 +495,14 @@ export const useStyle = makeStyles((theme: Theme) =>
             width: '90%',
             boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
         },
-        modalCardsCon:{
+        pokemonCardsCon:{
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
             width: '80%',
             margin: 'auto'
         },
-        modalCards:{
+        pokemonCards:{
             color: 'white',
             padding: '23px',
             borderRadius: '0.1em',
@@ -461,7 +518,7 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalBody:{
+        pokemonBody:{
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
@@ -469,7 +526,7 @@ export const useStyle = makeStyles((theme: Theme) =>
             minWidth: '60%',
             margin: 'auto',
         },
-        modalBodyStatsCard:{
+        pokemonBodyStatsCard:{
             display: 'flex',
             flexWrap: 'wrap',
             padding: '10px',
@@ -488,29 +545,27 @@ export const useStyle = makeStyles((theme: Theme) =>
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
         },
-        modalBodyStatsCardTitle:{
+        pokemonBodyStatsCardTitle:{
             backgroundColor: 'yellow',
             textAlign: 'center',
             width: '80px',
             padding: '10px',
         },
-        modalBodyStatsCardBody:{
+        pokemonBodyStatsCardBody:{
             textAlign: 'center',
             padding: '10px',
             margin: 'auto',
         },
-        modalImgContainer:{
+        pokemonImgContainer:{
             display: 'flex',
             flexWrap: 'wrap',
             margin: 'auto',
-            marginTop: '30px',
-            marginBottom: '30px',
             width: '90%',
             padding: '10px',
             alignItems: 'center',
             borderRadius: '0.5em',
         },
-        modalImg: {
+        pokemonImg: {
             margin: 'auto',
             width: '25%',
             minWidth: '250px',
@@ -520,6 +575,56 @@ export const useStyle = makeStyles((theme: Theme) =>
                 transform: 'scale(1.1)',
                 boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
             }
+        },
+        abilitiesContainer:{
+            marginTop: '5%',
+            padding: '20px',
+            textAlign: 'center',
+            margin: 'auto',
+            width: '800px',
+            backgroundColor: 'white',
+            borderRadius: '0.5em',
+            boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px',
+        },
+        abilitiesHeader:{
+            color: 'white',
+            padding: '23px',
+            maxWidth: '400px',
+            borderRadius: '0.1em',
+            fontSize: '50px',
+            margin: 'auto',
+            marginBottom: '20px',
+            backgroundColor: 'grey',
+            fontFamily: [
+                'Poppins',
+                'sans-serif',
+              ].join(','),
+            transitionDuration: '350ms',
+            '&:hover':{
+                transform: 'scale(1.1)',
+                boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
+            }
+        },
+        abilitiesBody:{
+            backgroundColor: '#FFF9C4',
+            fontSize: '20px',
+            padding: '20px',
+            fontFamily: [
+                'Poppins',
+                'sans-serif',
+              ].join(','),
+            boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'
+        },
+        abilitiesTitle:{
+            backgroundColor: "#FFFDE7",
+            padding: '20px',
+            fontSize: '20px',
+            margin: 'auto',
+            fontFamily: [
+                'Poppins',
+                'sans-serif',
+              ].join(','),
+            boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'
         }
     })
 );

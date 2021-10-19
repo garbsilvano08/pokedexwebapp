@@ -1,125 +1,98 @@
-import { Box, Button, CircularProgress, Container, Modal } from '@material-ui/core';
-import React, { useEffect, useState } from 'react'
-import { useStyle } from '../hooks/useStyle';
+import { Container, Modal } from '@material-ui/core'
+import React, {useState, useEffect} from 'react'
+import { useStyle } from '../hooks/useStyle'
 import { useTypedSelector } from '../hooks/useTypeSelector';
-import { PokemonState } from '../state/reducer/pokemonReducer';
-import loading from '../images/loading.gif';
-import backgroundPokeball from '../images/pokeball.png'
+import { PokemonAbilitiesProps, PokemonState } from '../state/reducer/pokemonReducer';
+import axios from 'axios';
 
-export interface ModalProps{
-    openPokemon: boolean;
+interface Modalprops{
+    abilityUrl: string;
+    openModal: boolean;
     handleCloseModal: () => void;
 }
 
-const ModalPage: React.FC<ModalProps> = ({openPokemon,handleCloseModal}: ModalProps) => {
+const initialStatePokemonAbilitiesProps = {
+    data: {
+        effect_changes: [''],
+    effect_entries: [{
+        effect: '',
+        language:{
+            name: '',
+            url: '',
+        },
+        short_effect: '',
+    }],
+    flavor_text_entries: [{
+        flavor_text: '',
+        language: {
+            name: '',
+            url: '',
+        },
+        verstion_group: {
+            name: '',
+            url: '',
+        }
+    }],
+    generation: [{
+        name: '',
+        url: '',
+    }],
+    id: 0,
+    is_main_series: false,
+    name: '',
+    names: [{}],
+    pokemon: [{}]
+    }
+}
+
+const ModalPage: React.FC<Modalprops> = ({openModal, abilityUrl, handleCloseModal}: Modalprops) => {
     const classes = useStyle();
     const state : PokemonState = useTypedSelector((state)=> state.pokemon);
+    const [data, setdata] = useState<PokemonAbilitiesProps>(initialStatePokemonAbilitiesProps);
+    const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-    console.log(state);
+    const getAbilities = async() => {
+        console.log(abilityUrl);
+        const {data}: PokemonAbilitiesProps = await axios.get(abilityUrl);
+        setdata({data});
+        setIsLoaded(true);
+    }
+
+    console.log(data.data.effect_entries);
+
+    useEffect(() => {
+        getAbilities();
+    }, [isLoaded])
     return (
         <Modal
-            open={openPokemon}
+            open={openModal}
             onClose={handleCloseModal}
-            className={classes.modalContainer}
-            >
-               <>
-               {
-                   state.loading === false && state.error === null && 
-                   <Container className={classes.container} maxWidth={'lg'}>
-                    <div className={classes.modalHeader}>
-                            <h1 className={classes.modalPokemon}>{state.data.name.toUpperCase()}</h1>
-                            <div className={classes.modalTypeCards}>
-                                {
-                                    state.data.types.map((type) =>{ 
-                                        return(
-                                            <div key={type.slot} className={
-                                                type.type.name === 'grass'? 
-                                                classes.modalTypeCardGrass : 
-                                                type.type.name === 'poison'? 
-                                                classes.modalTypeCardPoison : 
-                                                type.type.name === 'water'? 
-                                                classes.modalTypeCardWater : 
-                                                type.type.name === 'fire'? 
-                                                classes.modalTypeCardFire : 
-                                                type.type.name === 'ground'? 
-                                                classes.modalTypeCardGround : 
-                                                type.type.name === 'rock'? 
-                                                classes.modalTypeCardRock : 
-                                                type.type.name === 'steel'? 
-                                                classes.modalTypeCardSteel : 
-                                                type.type.name === 'ice'? 
-                                                classes.modalTypeCardIce : 
-                                                type.type.name === 'electric'? 
-                                                classes.modalTypeCardElectric : 
-                                                type.type.name === 'dragon'? 
-                                                classes.modalTypeCardDragon : 
-                                                type.type.name === 'ghost'? 
-                                                classes.modalTypeCardGhost : 
-                                                type.type.name === 'psychic'? 
-                                                classes.modalTypeCardPsychic : 
-                                                type.type.name === 'fighting'? 
-                                                classes.modalTypeCardFighting : 
-                                                type.type.name === 'bug'? 
-                                                classes.modalTypeCardBug : 
-                                                type.type.name === 'flying'? 
-                                                classes.modalTypeCardFlying : 
-                                                type.type.name === 'dark'? 
-                                                classes.modalTypeCardDark : 
-                                                type.type.name === 'fairy'? 
-                                                classes.modalTypeCardWater : 
-                                                classes.modalTypeCardNormal}>
-                                                <h3>{type.type.name.toUpperCase()}</h3>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                    </div>
-                    <div id={'imgCon'} className={classes.modalImgContainer}>
-                        <img id={'img'} className={classes.modalImg} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${state.data.id}.png`}/>
-                        <div className={classes.modalBody}>
-                            {
-                                state.data.stats.map((stat)=>{
-                                    return(
-                                        <div key={stat.base_stat} className={classes.modalBodyStatsCard}>
-                                            <div className={classes.modalBodyStatsCardTitle}>
-                                                {stat.stat.name.toUpperCase()}
-                                            </div>
-                                            <div className={classes.modalBodyStatsCardBody}>
-                                                {stat.base_stat}
-                                            </div>
-                                        </div>
-                                    )
-                                })
+        >
+            <Container className={classes.abilitiesContainer} maxWidth={'lg'}>
+                <div className={classes.abilitiesHeader}>
+                    {
+                        data.data.name.toUpperCase()
+                    }
+                </div>
+                <div className={classes.abilitiesTitle}>
+                {
+                        data.data.effect_entries.map((effect, index) => {
+                            if(effect.language.name === 'en'){
+                            return effect.short_effect
                             }
-                        </div>
-                    </div>
-                    <div className={classes.modalFooter}>
-                            <div className={classes.modalFooterTitle}>
-                                ABILITIES
-                            </div>
-                            <div className={classes.modalCardsCon}>
-                            {state.data.abilities.map((ability) => {
-                                return(
-                                    <div key={ability.slot} className={classes.modalCards}>
-                                            {ability.ability.name.toUpperCase()}
-                                    </div>
-                                )
-                            })}
-                            </div>
-                    </div>
-                   </Container>
-               }
-                { state.loading === true && <div className={classes.loadingContainer}>
-                    <img className={classes.loadingIcon} src={`${loading}`} alt={'loading'}/>
-                </div>}
-               {
-                   state.error !== null &&
-                   <div className={classes.loadingContainer}>
-                       {state.error}
-                   </div>
-               }
-               </>
+                        })
+                    }
+                </div>
+                <div className={classes.abilitiesBody}>
+                    {
+                        data.data.effect_entries.map((effect, index) => {
+                            if(effect.language.name === 'en'){
+                            return effect.effect
+                            }
+                        })
+                    }
+                </div>
+            </Container>
         </Modal>
     )
 }
