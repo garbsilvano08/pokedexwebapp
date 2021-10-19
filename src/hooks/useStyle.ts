@@ -14,6 +14,7 @@ export const useStyle = makeStyles((theme: Theme) =>
             paddingLeft: '45px',
             paddingRight: '45px',
             boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
+            overflow: 'auto',
         },
         logo:{
             zIndex: 1,
@@ -50,6 +51,8 @@ export const useStyle = makeStyles((theme: Theme) =>
             width: '96%',
             padding: '20px',
             borderRadius: '0.5em',
+            maxHeight: '55vh',
+            overflow: 'auto',
         },
         cards:{
             display: 'flex',
@@ -92,7 +95,9 @@ export const useStyle = makeStyles((theme: Theme) =>
         inputDiv:{
             display: 'flex',
             width: '25%',
+            minWidth: '250px',
             position: 'relative',
+            maxWidth: '30%',
         },
         searchBtn: {
             position: 'absolute',
@@ -105,6 +110,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         searchInput: {
             width: '100%',
+            minWidth: '250px',
             backgroundColor: 'white',
             borderRadius: '0.5em',
         },
@@ -123,7 +129,6 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         modalContainer:{
             backgroundColor: 'rgba(0,0,0,0.2)',
-            transitionDuration: '350ms',
         },
         modalHeader:{
             backgroundImage: `url(${pokeball})`,
@@ -136,6 +141,7 @@ export const useStyle = makeStyles((theme: Theme) =>
             backgroundColor: '#F5F5F5',
             margin: 'auto',
             width: '90%',
+            minWidth: '500px',
             padding: '10px',
             borderRadius: '0.5em',
             fontFamily: [
@@ -436,7 +442,8 @@ export const useStyle = makeStyles((theme: Theme) =>
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            width: '60%',
+            width: '80%',
+            margin: 'auto'
         },
         modalCards:{
             color: 'white',
@@ -459,6 +466,8 @@ export const useStyle = makeStyles((theme: Theme) =>
             flexWrap: 'wrap',
             justifyContent: 'center',
             width: '60%',
+            minWidth: '60%',
+            margin: 'auto',
         },
         modalBodyStatsCard:{
             display: 'flex',
@@ -467,6 +476,7 @@ export const useStyle = makeStyles((theme: Theme) =>
             background: 'white',
             margin: '10px',
             width:'200px',
+            minWidth:'200px',
             borderRadius: '0.5em',
             transitionDuration: '350ms',
             fontFamily: [
@@ -493,6 +503,8 @@ export const useStyle = makeStyles((theme: Theme) =>
             display: 'flex',
             flexWrap: 'wrap',
             margin: 'auto',
+            marginTop: '30px',
+            marginBottom: '30px',
             width: '90%',
             padding: '10px',
             alignItems: 'center',
@@ -500,7 +512,8 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         modalImg: {
             margin: 'auto',
-            width: '250px',
+            width: '25%',
+            minWidth: '250px',
             height: '250px',
             transitionDuration: '500ms',
             '&:hover':{
