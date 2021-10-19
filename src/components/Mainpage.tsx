@@ -74,7 +74,7 @@ const Mainpage : React.FC = () => {
     return (
         <>
             <Container className={classes.container} maxWidth={'lg'}>
-                <h1 className={classes.logo}>PokeDex</h1>
+                <span className={classes.logo}>PokeDex</span>
                 <Searchbar name={name} handleChange={handleChange} handleSearch={handleSearch}/>
 
                 <div className={classes.cardsContainer}>

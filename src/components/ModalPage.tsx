@@ -26,8 +26,8 @@ const ModalPage: React.FC<ModalProps> = ({openPokemon,handleCloseModal}: ModalPr
                {
                    state.loading === false && state.error === null && 
                    <Container className={classes.container} maxWidth={'lg'}>
+                    <h1 className={classes.logo}>PokeDex</h1>
                     <div className={classes.modalHeader}>
-                            <h1 className={classes.logo}>PokeDex</h1>
                             <h1 className={classes.modalPokemon}>{state.data.name.toUpperCase()}</h1>
                             <div className={classes.modalTypeCards}>
                                 {
