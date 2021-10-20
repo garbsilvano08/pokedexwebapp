@@ -186,7 +186,7 @@ export const useStyle = makeStyles((theme: Theme) =>
             backgroundColor: '#F5F5F5',
             margin: 'auto',
             width: '90%',
-            minWidth: '500px',
+            minWidth: '200px',
             padding: '10px',
             borderRadius: '0.5em',
             fontFamily: [
@@ -208,6 +208,8 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonPokemon:{
             float: 'right',
+            marginLeft: '20%',
+            fontSize: '150%',
             padding: '20px',
             borderRadius: '0.5em',
             color: 'black',
@@ -222,6 +224,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardNormal:{
             backgroundColor: '#EEEEEE',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -236,6 +239,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardGrass:{
             backgroundColor: 'green',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -250,6 +254,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardPoison:{
             backgroundColor: 'violet',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -264,6 +269,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardWater:{
             backgroundColor: 'blue',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -278,6 +284,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardFire:{
             backgroundColor: 'red',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -292,6 +299,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardGround:{
             backgroundColor: 'brown',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -306,6 +314,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardRock:{
             backgroundColor: 'grey',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -320,6 +329,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardSteel:{
             backgroundColor: '#CFD8DC',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -334,6 +344,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardIce:{
             backgroundColor: '#BBDEFB',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -348,6 +359,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardElectric:{
             backgroundColor: '#F9A825',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -362,6 +374,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardDragon:{
             backgroundColor: '#0D47A1',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -376,6 +389,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardGhost:{
             backgroundColor: '#D7CCC8',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -390,6 +404,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardPsychic:{
             backgroundColor: '#D7CCC8',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -404,6 +419,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardFighting:{
             backgroundColor: '#757575',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -418,6 +434,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardBug:{
             backgroundColor: '#DCE775',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -432,6 +449,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardFlying:{
             backgroundColor: '#00E5FF',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -446,6 +464,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardDark:{
             backgroundColor: '#6A1B9A',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -460,6 +479,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         pokemonTypeCardFairy:{
             backgroundColor: '#18FFFF',
+            fontSize: '80%',
             margin: '10px',
             padding: '20px',
             fontFamily: [
@@ -577,11 +597,12 @@ export const useStyle = makeStyles((theme: Theme) =>
             }
         },
         abilitiesContainer:{
-            marginTop: '5%',
+            marginTop: '20%',
             padding: '20px',
             textAlign: 'center',
             margin: 'auto',
-            width: '800px',
+            width: '400px',
+            minheight: '90vh',
             backgroundColor: 'white',
             borderRadius: '0.5em',
             boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px',
@@ -591,7 +612,7 @@ export const useStyle = makeStyles((theme: Theme) =>
             padding: '23px',
             maxWidth: '400px',
             borderRadius: '0.1em',
-            fontSize: '50px',
+            fontSize: '110%',
             margin: 'auto',
             marginBottom: '20px',
             backgroundColor: 'grey',
@@ -607,8 +628,10 @@ export const useStyle = makeStyles((theme: Theme) =>
         },
         abilitiesBody:{
             backgroundColor: '#FFF9C4',
-            fontSize: '20px',
+            fontSize: '100%',
             padding: '20px',
+            maxHeight: '140px',
+            overflow: 'auto',
             fontFamily: [
                 'Poppins',
                 'sans-serif',
