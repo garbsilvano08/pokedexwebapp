@@ -9,6 +9,7 @@ export const useStyle = makeStyles((theme: Theme) =>
             marginTop: '10px',
             backgroundColor: "#F5F5F5",
             height: '97vh',
+            position: 'relative',
             borderRadius: '0.5em',
             padding: '20px',
             paddingLeft: '45px',
@@ -94,7 +95,7 @@ export const useStyle = makeStyles((theme: Theme) =>
         card:{
             padding: '10px',
             width: '240px',
-            height: '40px',
+            height: '6vh',
             backgroundColor: '#F5F5F5',
             margin: 'auto',
             marginTop: '10px',
@@ -123,12 +124,18 @@ export const useStyle = makeStyles((theme: Theme) =>
               ].join(','),
             '&:visited':{
                 color: '#26A69A',
+                '-webkit-text-stroke-width': '1px',
+                '-webkit-text-stroke-color': 'yellow',
             },
             '&:link':{
                 color: 'black',
+                '-webkit-text-stroke-width': '1px',
+                '-webkit-text-stroke-color': 'yellow',
             },
             '&:hover':{
                 color: 'red',
+                '-webkit-text-stroke-width': '1px',
+                '-webkit-text-stroke-color': 'yellow',
             }
         },
         cardTitle:{
@@ -165,6 +172,9 @@ export const useStyle = makeStyles((theme: Theme) =>
             paddingTop: '20px',
             paddingRight: '20px',
             margin: 'auto',
+            position: 'absolute',
+            bottom: '5px',
+            right: '5px',
         },
         buttons: {
             margin: 'auto',
