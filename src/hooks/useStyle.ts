@@ -607,7 +607,7 @@ export const useStyle = makeStyles((theme: Theme) =>
             }
         },
         abilitiesContainer:{
-            marginTop: '20%',
+            marginTop: '8%',
             padding: '20px',
             textAlign: 'center',
             margin: 'auto',
