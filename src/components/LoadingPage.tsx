@@ -21,30 +21,7 @@ const LoadingPage: React.FC<LoadingProps> = ({openLoading, handleCloseLoading}: 
         }
     }, [state])
     return (
-        <Modal
-            open={openLoading}
-            onClose={handleCloseLoading}
-            className={classes.modalContainer}
-            >
-               <>
-                { state.loading === true && <div className={classes.loadingContainer}>
-                    <img className={classes.loadingIcon} src={`${loading}`} alt={'loading'}/>
-                </div>}
-               {
-                   state.error !== null &&
-                   <div className={classes.errContainer}>
-                       <div className={classes.errHeader}>
-                            {state.error}
-                       </div>
-                       {
-                           state.error !== null && <div className={classes.errBody}>
-                               The Pokemon you search doesnt Exist!
-                               </div>
-                       }
-                   </div>
-               }
-               </>
-        </Modal>
+        <></>
     )
 }
 
